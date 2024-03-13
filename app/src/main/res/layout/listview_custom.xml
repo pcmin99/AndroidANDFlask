@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/white">
+
+    <!-- Guideline을 사용하여 박스 상단과 좌우를 정의 -->
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guidelineTop"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.1"
+        android:background="@color/black"/>
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guidelineLeft"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.1"
+        android:background="@color/black"/>
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guidelineRight"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.9"
+        android:background="@color/black"/>
+
+    <!-- 검정색 라인 -->
+    <View
+        android:id="@+id/topLine"
+        android:layout_width="0dp"
+        android:layout_height="1dp"
+        android:background="@android:color/black"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@id/guidelineTop"/>
+
+    <!-- 상자 모양의 그룹을 만듭니다. -->
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/boxGroup"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:background="@android:color/white"
+        app:layout_constraintStart_toStartOf="@id/guidelineLeft"
+        app:layout_constraintEnd_toEndOf="@id/guidelineRight"
+        app:layout_constraintTop_toTopOf="@id/guidelineTop"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:elevation="4dp"
+        android:text="@color/black">
+
+        <!-- Separator Line -->
+
+
+        <TextView
+            android:id="@+id/user_id"
+            android:layout_width="147dp"
+            android:layout_height="28dp"
+            android:text="User ID"
+            android:textColor="@android:color/black"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/separatorLine"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.045"
+            tools:ignore="HardcodedText" />
+
+        <View
+            android:id="@+id/separatorLine"
+            android:layout_width="1dp"
+            android:layout_height="0dp"
+            android:background="@android:color/darker_gray"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toEndOf="@id/user_id"
+            app:layout_constraintEnd_toStartOf="@+id/receiptInfoContainer"
+            tools:ignore="HardcodedText"/>
+
+        <LinearLayout
+            android:id="@+id/receiptInfoContainer"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:baselineAligned="@color/black"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toEndOf="@id/separatorLine"
+            app:layout_constraintEnd_toEndOf="parent">
+
+            <!-- Separator Line -->
+            <TextView
+                android:id="@+id/receipt_review_content"
+                android:layout_width="match_parent"
+                android:layout_height="41dp"
+                android:layout_marginTop="8dp"
+                android:text="Receipt Review Content"
+                android:textColor="@android:color/black"
+                android:textSize="16sp"
+                android:textStyle="normal"
+                tools:ignore="HardcodedText" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@android:color/darker_gray"
+                android:layout_marginTop="8dp"
+                tools:ignore="HardcodedText"/>
+
+            <TextView
+                android:id="@+id/recdate"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="영수증 날짜:"
+                android:textColor="@android:color/black"
+                android:textStyle="italic"
+                android:textSize="14sp"
+                android:layout_marginTop="8dp"
+                tools:ignore="HardcodedText" />
+
+
+            <TextView
+                android:id="@+id/receipt_date"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Receipt Date"
+                android:textColor="@android:color/black"
+                android:textStyle="italic"
+                android:textSize="10sp"
+                android:layout_marginTop="8dp"
+                tools:ignore="HardcodedText" />
+        </LinearLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
